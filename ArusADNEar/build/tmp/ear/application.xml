@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="5">
+  <display-name>ARUS EAR</display-name>
+  <module>
+    <web>
+      <web-uri>ArusADN.war</web-uri>
+      <context-root>/Web</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>ArusADN-1.0.war</web-uri>
+      <context-root>ArusADN-1.0</context-root>
+    </web>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

@@ -1,0 +1,9 @@
+
+
+include ':ArusADNEJB'
+include ':ArusADN'
+include ':ArusADNEar'
+
+project(':ArusADNEJB').projectDir = "$rootDir/ArusADNEJB" as File
+project(':ArusADN').projectDir = "$rootDir/ArusADN" as File
+project(':ArusADNEar').projectDir = "$rootDir/ArusADNEar" as File

@@ -1,0 +1,138 @@
+tasks.withType(AbstractCompile) {
+    options.encoding = "ISO-8859-1"
+}
+
+allprojects {
+    configurations.all {
+		resolutionStrategy {
+			cacheChangingModulesFor 0, "seconds"
+		}
+	}
+	repositories {
+		maven {
+            url "https://repository.jboss.org/maven2"
+        }
+	}
+	
+    ext {
+		jdkLevel = 1.7
+		encoding = 'ISO-8859-1'
+	}
+	
+	tasks.withType(JavaCompile) {
+		options.encoding = 'iso-8859-1'
+	}
+	
+	tasks.withType(Test) {
+		systemProperty "file.encoding", "iso-8859-1"
+	}
+	
+	
+}
+
+subprojects {
+	configurations.all {
+		resolutionStrategy {
+			cacheChangingModulesFor 0, "seconds"
+		}
+	}
+	
+	apply plugin: "java"
+	
+	sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    apply plugin: "jacoco"
+
+    sourceSets {
+        test.compileClasspath += configurations.compileOnly
+        test.runtimeClasspath += configurations.compileOnly
+    }
+
+    jacoco {
+        toolVersion = "0.7.9"
+        reportsDir = file("$buildDir/test-results/jacoco")
+
+        jacocoTestReport {
+            reports {
+                xml.enabled false
+                csv.enabled false
+                html.destination file("${buildDir}/test-results/jacoco/html")
+            }
+        }
+    }
+
+	test {
+      
+		jvmArgs '-XX:MaxPermSize=1024m'
+		maxParallelForks = Runtime.runtime.availableProcessors()
+    }
+	
+}
+
+apply plugin: 'ear'
+
+ear {
+    appDirName "EarContent"
+}
+
+
+
+apply plugin: 'eclipse-wtp'
+
+eclipse {
+	wtp {
+		facet {
+			facet name:'jst.ear', version:'5.0'
+		}
+	}
+	
+	project {
+		natures = [
+			'org.eclipse.wst.common.project.facet.core.nature', 
+			'org.eclipse.wst.common.modulecore.ModuleCoreNature'
+		]
+	}
+}
+
+
+dependencies {
+   // deploy project(':ArusADNEJB')
+    //deploy project(path: ':ArusADNEJB', configuration: 'archives')
+    
+    earlib project(':ArusADNEJB')
+	deploy project(path: ':ArusADN', configuration: 'archives')
+	
+}
+
+
+
+ear {
+	deploymentDescriptor { 
+		version = '5'
+		displayName = "ARUS EAR" 
+		webModule("ArusADN.war", "/Web")
+	}
+}
+
+
+eclipse {
+	wtp {
+		component {
+			file {
+				withXml {
+					it.asNode()'wb-module'[0].children()
+						.findAll { it.name() == 'dependent-module' }
+						.findAll { it.attribute('handle').startsWith 'module:/resource' }
+						.each {
+						//	def jarName = it.attribute('handle').tokenize('/').last() + '.jar'
+						//	if( jarName.contains('ArusADN') ) jarName = jarName.replace('.jar', '.war')
+							
+						//	it.attributes().put('archiveName', jarName)
+						}
+		
+				}
+			}
+		}
+	}
+}
