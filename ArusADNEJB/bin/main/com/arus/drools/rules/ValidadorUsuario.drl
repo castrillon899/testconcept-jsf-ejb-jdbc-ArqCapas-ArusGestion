@@ -1,0 +1,33 @@
+package com.baeldung.drools.rules;
+
+import com.arus.usuarios.model.bo.UsuarioBO;
+import org.apache.commons.lang.time.DateUtils; 
+
+global com.arus.usuarios.model.bo.ValidadorDeNegocio validaciones;
+
+dialect  "mvel"
+
+rule "Usuario se intenta registrar a AFP003 Colpensiones y fecha de afiliacion es menor 2021/01/01"
+    when
+       $usuario: UsuarioBO(administradoraDePension == "AFP003" && fechaAfiliacionAPension<=DateUtils.parseDate("31-12-2020", new String[]{"dd-MM-yyyy"}))
+    then
+        validaciones.agregarErrorNegocio("Para la administradora de pensión AFP003 solo es posible afiliarse después de  2020/12/31");
+end
+
+
+
+rule "Usuario se intenta registrar con tipo documento RC RegistroCivil con las administradoras EPS003 Coomeva o EPS004 Medimas"
+    when
+       $usuario: UsuarioBO(tipoDeDocumento=="RC" && (administradoraSalud == "EPS003" || administradoraSalud == "EPS004" ))
+    then
+        validaciones.agregarErrorNegocio("Para una persona con tipo de documento RC Registro civil no es permitido afiliarse a las EPS: EPS003, EPS004");
+end
+
+
+
+rule "Usuario se intenta registrar a administradora de salud EPS002 Sura EPS y administradora de pension es diferente a AFP001 Protección "
+    when
+       $usuario: UsuarioBO(administradoraSalud == "EPS002" && administradoraDePension != "AFP001")
+    then
+        validaciones.agregarErrorNegocio("Las personas que se afilien a la administradora EPS002 Sura EPS solo pueden afiliarse a la administradora de pensión AFP001 Protección");
+end

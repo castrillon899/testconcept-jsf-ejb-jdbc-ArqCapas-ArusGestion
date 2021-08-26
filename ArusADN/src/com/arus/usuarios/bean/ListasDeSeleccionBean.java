@@ -37,8 +37,8 @@ public class ListasDeSeleccionBean {
 	private void cargarAdministradoraDeSalud()
 	{
 		administradoraDeSalud=new ArrayList<>();
-		administradoraDeSalud.add(new AdministradoraDeSalud("EPS001 ","Sanitas EPS"));
-		administradoraDeSalud.add(new AdministradoraDeSalud("EPS002 ","Sura EPS"));
+		administradoraDeSalud.add(new AdministradoraDeSalud("EPS001","Sanitas EPS"));
+		administradoraDeSalud.add(new AdministradoraDeSalud("EPS002","Sura EPS"));
 		administradoraDeSalud.add(new AdministradoraDeSalud("EPS003","Coomeva"));
 		administradoraDeSalud.add(new AdministradoraDeSalud("EPS004","Medimas"));
 	}
@@ -48,7 +48,7 @@ public class ListasDeSeleccionBean {
 	{
 		administradoraDePension=new ArrayList<>();
 		administradoraDePension.add(new AdministradoraDePension("AFP001","Protección"));
-		administradoraDePension.add(new AdministradoraDePension("AFP002 ","Porvenir"));
+		administradoraDePension.add(new AdministradoraDePension("AFP002","Porvenir"));
 		administradoraDePension.add(new AdministradoraDePension("AFP003","Colpensiones"));
 	}
 	

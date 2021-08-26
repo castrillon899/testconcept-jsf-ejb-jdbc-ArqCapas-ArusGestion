@@ -1,13 +1,19 @@
 package com.arus.usuarios.bean;
+
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.arus.usuario.IHelloWorldLocal;
+import com.arus.usuario.IUsuarioServicioLocal;
+import com.arus.usuarios.model.bo.UsuarioBO;
+import com.arus.usuarios.model.bo.ValidadorDeNegocio;
+
 import javax.inject.Inject;
-@ManagedBean(name="registrationBean")
+
+@ManagedBean(name = "registrationBean")
 @SessionScoped
 
 public class UsuarioBean {
@@ -23,11 +29,12 @@ public class UsuarioBean {
 	private Date fechaAfiliacionASalud;
 	private String administradoraDePension;
 	private Date fechaAfiliacionAPension;
+	private List<String> validadores;
 
 	@EJB
 	@Inject
-	private IHelloWorldLocal test;
-	
+	private IUsuarioServicioLocal usuarioServicio;
+
 	public String getDocumento() {
 		return documento;
 	}
@@ -36,7 +43,6 @@ public class UsuarioBean {
 		this.documento = documento;
 	}
 
-	
 	public String getTipoDeDocumento() {
 		return tipoDeDocumento;
 	}
@@ -108,9 +114,28 @@ public class UsuarioBean {
 	public void setFechaAfiliacionAPension(Date fechaAfiliacionAPension) {
 		this.fechaAfiliacionAPension = fechaAfiliacionAPension;
 	}
+	
+	
+	public List<String> getValidadores() {
+		return validadores;
+	}
+
+	public void setValidadores(List<String> validadores) {
+		this.validadores = validadores;
+	}
 
 	public String createRegistrationForm() {
-		System.out.print(test.hello());
+
+		UsuarioBO usuarioBO = new UsuarioBO(primerNombre, segundoNombre, primerApellido, segundoApellido,
+				tipoDeDocumento, documento, administradoraSalud, fechaAfiliacionASalud, administradoraDePension,
+				fechaAfiliacionAPension);
+		
+		System.out.print(usuarioBO);
+		
+		ValidadorDeNegocio resultadoValidaciones = usuarioServicio.registrarUsuario(usuarioBO);
+		validadores=resultadoValidaciones.getValidaciones();
+		
+		System.out.print(validadores);
 		return PANTALLA_OUTPUT;
 	}
 }
