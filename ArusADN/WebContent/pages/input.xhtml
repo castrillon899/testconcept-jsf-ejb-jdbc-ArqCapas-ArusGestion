@@ -1,128 +1,130 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jstl/core"
-	
-	>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/templates/common.xhtml">
 
-	<ui:define name="pageHeader"><h2>Registro de usuarios</h2></ui:define>
+	<ui:define name="pageHeader">
+		<h2>Registro de usuarios</h2>
+	</ui:define>
 
 	<ui:define name="body">
 
 		<h:form id="registrationForm">
-			<div class="form-group">
-
+			
+			
+			
+			<div class="form-group row">
 				<div class="form-row">
 					<div class="form-group col-md-6 ">
-					    <i class="fas fa-user"> </i>
-						<h:outputLabel value="Tipo documento" styleClass="ml-2" />
+						<i class="fas fa-user"> </i>
+						<h:outputLabel for="tipoDeDocumento" value="Tipo documento"
+							styleClass="ml-2" />
 
 						<h:selectOneMenu id="tipoDeDocumento"
 							value="#{registrationBean.tipoDeDocumento}"
-							styleClass="form-control">
+							styleClass="form-control" effect="fold" required="true">
+
+
 							<f:selectItems value="#{parametrizador.tiposDedocumentos}"
 								var="model" itemLabel="#{model.descripcion}"
-								itemValue="#{model.codigo}" />
+								itemValue="#{model.codigo}">
+
+
+
+							</f:selectItems>
+
+
 						</h:selectOneMenu>
 
 					</div>
 					<div class="form-group col-md-6">
 						<i class="fas fa-id-card"></i>
-						
+
 						<h:outputLabel value="Numero de Documento" />
 						<h:inputText value="#{registrationBean.documento}" id="documento"
-							styleClass="form-control" required="true"
-							requiredMessage="Ingrese numero de documento">
+							styleClass="form-control"
+							>
 						</h:inputText>
+						<h:message for="documento" styleClass="alert alert-warning col-sm-12 text-center" />
 
-						<!--  
-							<h:message for="documento" styleClass="col-sm-2 validation" />
-						-->
 					</div>
 				</div>
-
-
-
 			</div>
 
-
-			<div class="form-group">
-
-				<div class="form-row">
+			<div class="form-row row">
 					<div class="form-group col-md-6">
-					<i class="fas fa-user"> </i>
+						
+						
+						<i class="fas fa-user"> </i>
 						<h:outputLabel value="primer nombre" />
 
 						<h:inputText value="#{registrationBean.primerNombre}"
 							id="primerNombre" styleClass="form-control" required="true"
-							requiredMessage="Ingrese primer nombre">
-
+							requiredMessage="Ingrese primer nombre"
+							validator="#{registrationBean.validarNombre}">
 						</h:inputText>
-
+						<h:message for="primerNombre" styleClass="alert alert-warning col-sm-12 text-center"/>
 					</div>
 
 					<div class="form-group col-md-6">
-					<i class="fas fa-user"> </i>
+
+						<i class="fas fa-user"> </i>
 						<h:outputLabel value="segundo nombre" />
 						<h:inputText value="#{registrationBean.segundoNombre}"
-							styleClass="form-control" />
-						<!--  
-							<h:message for="documento" styleClass="col-sm-2 validation" />
-						-->
+							id="segundoNombre" styleClass="form-control"
+							requiredMessage="Ingrese segundo nombre"
+							validator="#{registrationBean.validarNombre}" />
+						    <h:message for="segundoNombre" styleClass="alert alert-warning col-sm-12 text-center" />
 					</div>
+
 				</div>
 
+              
 
-
-			</div>
-
-
-
-
-
-			<div class="form-group">
-
-				<div class="form-row">
+				<div class="form-row row">
 					<div class="form-group col-md-6">
-					<i class="fas fa-user"> </i>
+						<i class="fas fa-user"> </i>
 						<h:outputLabel value="primer Apellido" />
-
 						<h:inputText value="#{registrationBean.primerApellido}"
 							styleClass="form-control" required="true"
-							requiredMessage="Ingrese primer apellido" id="primerApellido" />
-
-						<h:message for="primerApellido" styleClass="col-sm-2 validation" />
+							requiredMessage="Ingrese primer apellido" id="primerApellido" 
+							validator="#{registrationBean.validarNombre}"
+							
+							/>
+						 <h:message for="primerApellido" styleClass="alert alert-warning col-sm-12 text-center"/>
 
 					</div>
 					<div class="form-group col-md-6">
-					<i class="fas fa-user"> </i>
+						<i class="fas fa-user"> </i>
 						<h:outputLabel value="segundo Apellido" />
 
 						<h:inputText value="#{registrationBean.segundoApellido}"
-							styleClass="form-control" />
-						<!--  
-							<h:message for="documento" styleClass="col-sm-2 validation" />
-						-->
+							id="segundoApellido" styleClass="form-control"
+							validator="#{registrationBean.validarNombre}"
+							 />
+
+						<h:message for="segundoApellido" styleClass="alert alert-warning col-sm-12 text-center"/>
+
 					</div>
 				</div>
 
 
 
-			</div>
+		
 
 
 
 
 
-			<div class="form-group">
+			<div class="form-group row">
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-					  <i class="fas fa-ambulance"></i>
+						<i class="fas fa-ambulance"></i>
 						<h:outputLabel value="Administradora de Salud" />
 
 						<h:selectOneMenu id="tipoDeAdministrdora"
@@ -135,29 +137,24 @@
 
 					</div>
 					<div class="form-group col-md-6">
-					<i class="fas fa-calendar-alt"></i>
+						<i class="fas fa-calendar-alt"></i>
 						<h:outputLabel value="Fecha de afiliacion a salud" />
 						<h:inputText value="#{registrationBean.fechaAfiliacionASalud}"
 							styleClass="form-control datepicker">
 							<f:convertDateTime pattern="yyyy-MM-dd" timeZone="America/Bogota" />
 						</h:inputText>
-						<!--  
-							<h:message for="documento" styleClass="col-sm-2 validation" />
-						-->
+
 					</div>
 				</div>
-
-
-
 			</div>
 
 
 
-			<div class="form-group">
+			<div class="form-group row">
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-					<i class="fas fa-handshake"></i>
+						<i class="fas fa-handshake"></i>
 						<h:outputLabel value="Administradora de pensiones" />
 
 						<h:selectOneMenu id="tipoDeAdministrdoraPension"
@@ -171,15 +168,13 @@
 
 					</div>
 					<div class="form-group col-md-6">
-					<i class="fas fa-calendar-alt"></i>
+						<i class="fas fa-calendar-alt"></i>
 						<h:outputLabel value="Fecha de afiliacion a Pensiones" />
 						<h:inputText value="#{registrationBean.fechaAfiliacionAPension}"
 							styleClass="form-control datepicker">
 							<f:convertDateTime pattern="yyyy-MM-dd" timeZone="America/Bogota" />
 						</h:inputText>
-						<!--  
-							<h:message for="documento" styleClass="col-sm-2 validation" />
-						-->
+
 					</div>
 				</div>
 
@@ -200,20 +195,20 @@
 		</h:form>
 
 		<ui:repeat value="#{registrationBean.validadores}" var="item">
-		    <div class="alert alert-danger col-sm-12 text-center">
-		    <i class="fas fa-exclamation-triangle"></i>
-			<h:outputLabel value="#{item}"
-				styleClass="">
-			</h:outputLabel>
+			<div class="alert alert-danger col-sm-12 text-center">
+				<i class="fas fa-exclamation-triangle"></i>
+				<h:outputLabel value="#{item}" styleClass="">
+				</h:outputLabel>
 			</div>
 		</ui:repeat>
 
-		
-				
-	   <h:outputLabel value="Se registra con exito"  rendered="#{empty registrationBean.validadores}"
-				styleClass="alert alert-success col-sm-12 text-center">
-		</h:outputLabel>	
-     
+
+
+		<h:outputLabel value="Se registra con exito"
+			rendered="#{empty registrationBean.validadores and registrationBean.registroExitoso}"
+			styleClass="alert alert-success col-sm-12 text-center">
+		</h:outputLabel>
+
 
 	</ui:define>
 </ui:composition>

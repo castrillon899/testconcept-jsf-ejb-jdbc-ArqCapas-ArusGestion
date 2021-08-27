@@ -32,7 +32,6 @@ public class UsuarioServicio implements IUsuarioServicioLocal {
 		kieSession.insert(applicant);
 		kieSession.setGlobal("validaciones", validadorDeNegocio);
 		kieSession.fireAllRules();
-		System.out.println(validadorDeNegocio.getValidaciones().toString());
 		return validadorDeNegocio;
 
 	}

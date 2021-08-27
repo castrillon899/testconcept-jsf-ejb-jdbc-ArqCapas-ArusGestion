@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.arus.drools.service.UsuariosServicioIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-08-26T18:28:18" hostname="ANGEL-MARIN" time="4.739">
+<testsuite name="com.arus.drools.service.UsuariosServicioIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-08-27T03:36:02" hostname="ANGEL-MARIN" time="4.397">
   <properties/>
-  <testcase name="cuandoPersonaSeRegistraConEPS002SuraYAdministradoraDePensionEsDiferenteAFP001ProteccionGenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="4.181"/>
-  <testcase name="cuandoPersonaSeRegistraConRCYAdministradorasDeSaludSonEPS003EPS004GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.312"/>
-  <testcase name="cuandoAFP003YFechaDeAfiliacionInferior20201231GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.246"/>
-  <system-out><![CDATA[[Las personas que se afilien a la administradora EPS002 Sura EPS solo pueden afiliarse a la administradora de pensión AFP001 Protección]
-[Para una persona con tipo de documento RC Registro civil no es permitido afiliarse a las EPS: EPS003, EPS004]
-[Para la administradora de pensión AFP003 solo es posible afiliarse después de  2020/12/31]
-]]></system-out>
+  <testcase name="cuandoPersonaSeRegistraConEPS002SuraYAdministradoraDePensionEsDiferenteAFP001ProteccionGenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="3.914"/>
+  <testcase name="cuandoPersonaSeRegistraConRCYAdministradorasDeSaludSonEPS003EPS004GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.264"/>
+  <testcase name="cuandoAFP003YFechaDeAfiliacionInferior20201231GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.219"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.

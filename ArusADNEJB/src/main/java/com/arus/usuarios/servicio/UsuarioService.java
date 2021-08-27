@@ -17,7 +17,6 @@ public class UsuarioService {
     	kieSession.insert(applicant);
         kieSession.setGlobal("validaciones",validadorDeNegocio);
         kieSession.fireAllRules();
-        System.out.println(validadorDeNegocio.getValidaciones().toString());
         return  validadorDeNegocio;
 
     }

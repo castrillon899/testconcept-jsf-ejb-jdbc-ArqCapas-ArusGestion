@@ -51,6 +51,7 @@ repositories {
 dependencies {
     compileOnly project.ext["org.apache.log4j"]
     providedCompile fileTree(dir: "WebContent/WEB-INF/lib", include: '*.jar')
+    implementation 'org.primefaces:primefaces:4.0'
     providedCompile project(':ArusADNEJB')
     providedCompile 'javax:javaee-api:7.0'
 	    
