@@ -138,8 +138,8 @@
 					</div>
 					<div class="form-group col-md-6">
 						<i class="fas fa-calendar-alt"></i>
-						<h:outputLabel value="Fecha de afiliacion a salud" />
-						<h:inputText value="#{registrationBean.fechaAfiliacionASalud}"
+						<h:outputLabel value="Fecha de afiliacion a salud" /> 
+						<h:inputText value="#{registrationBean.fechaAfiliacionASalud}" autocomplete="false"
 							styleClass="form-control datepicker">
 							<f:convertDateTime pattern="yyyy-MM-dd" timeZone="America/Bogota" />
 						</h:inputText>
@@ -170,7 +170,7 @@
 					<div class="form-group col-md-6">
 						<i class="fas fa-calendar-alt"></i>
 						<h:outputLabel value="Fecha de afiliacion a Pensiones" />
-						<h:inputText value="#{registrationBean.fechaAfiliacionAPension}"
+						<h:inputText value="#{registrationBean.fechaAfiliacionAPension}" autocomplete="false"
 							styleClass="form-control datepicker">
 							<f:convertDateTime pattern="yyyy-MM-dd" timeZone="America/Bogota" />
 						</h:inputText>

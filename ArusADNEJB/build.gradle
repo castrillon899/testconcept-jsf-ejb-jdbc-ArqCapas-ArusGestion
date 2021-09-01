@@ -112,6 +112,10 @@ project.ext["unit"] = [
 	'org.powermock:powermock-mockito-release-full:1.6.3:full'
 ]
 
+project.ext["org.springframework"] = [
+	'org.springframework:spring-web:4.3.25.RELEASE'
+]
+
 apply plugin: 'maven-publish'
 
 eclipse {
@@ -136,6 +140,7 @@ dependencies {
 	compileOnly 'javax.ejb:ejb-api:3.0'	
     compileOnly 'javax:javaee-api:7.0'
     compileOnly project.ext["org.apache.commons"]  
+    implementation 'com.sun.jersey:jersey-client:1.9' 
    
     
     compileOnly project.ext["org.drools"]

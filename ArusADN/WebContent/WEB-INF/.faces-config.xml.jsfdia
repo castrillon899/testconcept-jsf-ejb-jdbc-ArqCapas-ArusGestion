@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
- <PROCESS-ITEM NAME="rules:#pages#greeting.xhtml"
-  PATH="/pages/greeting.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#inputname.xhtml"
-  PATH="/pages/inputname.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#pages#inputname.xhtml:0" NAME="item"
-   PATH="/pages/inputname.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="greeting::#pages#greeting.xhtml"
-    NAME="output" PATH="/pages/greeting.xhtml"
-    TARGET="rules:#pages#greeting.xhtml" TITLE="greeting" model-entity="JSFProcessItemOutput"/>
+ <PROCESS-ITEM NAME="rules:#pages#input.xhtml" PATH="/pages/input.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#input.xhtml:0" NAME="item"
+   PATH="/pages/input.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="input::#pages#input.xhtml" NAME="output"
+    PATH="/pages/input.xhtml" TARGET="rules:#pages#input.xhtml"
+    TITLE="input" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="output::#pages#output.xhtml" NAME="output1"
+    PATH="/pages/output.xhtml" TARGET="rules:#pages#output.xhtml"
+    TITLE="output" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#output.xhtml"
+  PATH="/pages/output.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

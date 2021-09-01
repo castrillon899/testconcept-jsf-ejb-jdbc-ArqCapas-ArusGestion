@@ -7,11 +7,16 @@
 	version="2.1">
 
 	<navigation-rule>
-		<from-view-id>/pages/inputname.xhtml</from-view-id>
+		<from-view-id>/pages/input.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>greeting</from-outcome>
-			<to-view-id>/pages/greeting.xhtml</to-view-id>
+			<from-outcome>input</from-outcome>
+			<to-view-id>/pages/input.xhtml</to-view-id>
 		</navigation-case>
+		
+		  <navigation-case>
+                    <from-outcome>output</from-outcome>
+                    <to-view-id>/pages/output.xhtml</to-view-id>
+                </navigation-case>
 	</navigation-rule>
 
     <application>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.arus.drools.service.UsuariosServicioIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-08-27T03:36:02" hostname="ANGEL-MARIN" time="4.397">
+<testsuite name="com.arus.drools.service.UsuariosServicioIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-09-01T16:20:41" hostname="ANGEL-MARIN" time="4.146">
   <properties/>
-  <testcase name="cuandoPersonaSeRegistraConEPS002SuraYAdministradoraDePensionEsDiferenteAFP001ProteccionGenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="3.914"/>
-  <testcase name="cuandoPersonaSeRegistraConRCYAdministradorasDeSaludSonEPS003EPS004GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.264"/>
-  <testcase name="cuandoAFP003YFechaDeAfiliacionInferior20201231GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.219"/>
+  <testcase name="cuandoPersonaSeRegistraConEPS002SuraYAdministradoraDePensionEsDiferenteAFP001ProteccionGenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="3.589"/>
+  <testcase name="cuandoPersonaSeRegistraConRCYAdministradorasDeSaludSonEPS003EPS004GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.275"/>
+  <testcase name="cuandoAFP003YFechaDeAfiliacionInferior20201231GenerarErrorValidacion" classname="com.arus.drools.service.UsuariosServicioIntegrationTest" time="0.282"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -40,8 +40,8 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting clas
 	at org.drools.compiler.kie.builder.impl.KieBuilderImpl.buildKieProject(KieBuilderImpl.java:229)
 	at org.drools.compiler.kie.builder.impl.KieBuilderImpl.buildAll(KieBuilderImpl.java:197)
 	at com.arus.drools.config.MotorDeReglasDrools.cargarModuloConocimientoValidacionUsuarios(MotorDeReglasDrools.java:31)
-	at com.arus.usuarios.servicio.UsuarioService.<init>(UsuarioService.java:12)
-	at com.arus.drools.service.UsuariosServicioIntegrationTest.setup(UsuariosServicioIntegrationTest.java:25)
+	at com.arus.usuarios.drools.UsuarioDrools.<init>(UsuarioDrools.java:12)
+	at com.arus.drools.service.UsuariosServicioIntegrationTest.setup(UsuariosServicioIntegrationTest.java:26)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
